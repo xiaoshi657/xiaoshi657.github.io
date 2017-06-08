@@ -15,7 +15,7 @@ from tornado.web import RequestHandler
 from tornado.options import options, define
 from tornado.httpclient import AsyncHTTPClient, HTTPRequest
 
-
+code_dic={}
 WECHAT_TOKEN = "itcast"
 WECHAT_APP_ID = "wx23c2fd02b67b35d6"
 WECHAT_APP_SECRET = "744c681dd0f26d693d52b0bea3af3284"
@@ -188,8 +188,21 @@ class ProfileHandler(RequestHandler):
         resp = yield client.fetch(url)
         print(resp.body,"\n",resp.body.decode("utf8"))
         dict_data = json.loads(resp.body.decode("utf8"))
+        code_dic[code]=dict_data
+
         if "errcode" in dict_data:
-            self.write("error occur")
+            dict_data=code_dic[code]
+            access_toke = dict_data["access_token"]
+            open_id = dict_data["openid"]
+            url = "https://api.weixin.qq.com/sns/userinfo?" \
+                  "access_token=%s&openid=%s&lang=zh_CN" % (access_toke, open_id)
+            resp = yield client.fetch(url)
+            user_data = json.loads(resp.body.decode("utf8"))
+            if "errcode" in user_data:
+                self.write("error occur again")
+            else:
+                self.render("index.html", user=user_data)
+            #self.write("error occur")
         else:
             access_toke = dict_data["access_token"]
             open_id = dict_data["openid"]
