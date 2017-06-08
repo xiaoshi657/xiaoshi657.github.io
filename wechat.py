@@ -20,7 +20,7 @@ WECHAT_TOKEN = "itcast"
 WECHAT_APP_ID = "wx23c2fd02b67b35d6"
 WECHAT_APP_SECRET = "744c681dd0f26d693d52b0bea3af3284"
 
-define("port", default=8000, type=int, help="")
+define("port", default=80, type=int, help="")
 
 class AccessToken(object):
     """access_token辅助类"""
@@ -65,7 +65,7 @@ class WechatHandler(RequestHandler):
         tmp = [WECHAT_TOKEN, timestamp, nonce]
         tmp.sort()
         tmp = "".join(tmp)
-        real_signature = hashlib.sha1(tmp).hexdigest()
+        real_signature = hashlib.sha1(tmp).encode("utf-8")#hexdigest()
         if signature != real_signature:
             self.send_error(403)
 
