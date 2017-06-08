@@ -20,7 +20,7 @@ WECHAT_TOKEN = "itcast"
 WECHAT_APP_ID = "wx23c2fd02b67b35d6"
 WECHAT_APP_SECRET = "744c681dd0f26d693d52b0bea3af3284"
 
-define("port", default=8097, type=int, help="")
+define("port", default=80, type=int, help="")
 
 class AccessToken(object):
     """access_token辅助类"""
