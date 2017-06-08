@@ -196,7 +196,7 @@ class ProfileHandler(RequestHandler):
             url = "https://api.weixin.qq.com/sns/userinfo?" \
                   "access_token=%s&openid=%s&lang=zh_CN" % (access_toke, open_id)
             resp = yield client.fetch(url)
-            user_data = json.loads(resp.body)
+            user_data = json.loads(resp.body.decode("utf8"))
             if "errcode" in user_data:
                 self.write("error occur again")
             else:
