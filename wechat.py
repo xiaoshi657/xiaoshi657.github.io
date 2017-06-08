@@ -17,7 +17,7 @@ from tornado.httpclient import AsyncHTTPClient, HTTPRequest
 
 
 WECHAT_TOKEN = "itcast"
-WECHAT_APP_ID = "wxd61d3fff5a6e0756"#"wx23c2fd02b67b35d6"
+WECHAT_APP_ID = "wx23c2fd02b67b35d6"
 WECHAT_APP_SECRET = "744c681dd0f26d693d52b0bea3af3284"
 
 define("port", default=80, type=int, help="")
