@@ -20,7 +20,7 @@ WECHAT_TOKEN = "itcast"
 WECHAT_APP_ID = "wx23c2fd02b67b35d6"
 WECHAT_APP_SECRET = "744c681dd0f26d693d52b0bea3af3284"
 
-define("port", default=80, type=int, help="")
+define("port", default=8097, type=int, help="")
 
 class AccessToken(object):
     """access_token辅助类"""
@@ -35,7 +35,7 @@ class AccessToken(object):
         url = "https://api.weixin.qq.com/cgi-bin/token?" \
         "grant_type=client_credential&appid=%s&secret=%s" % (WECHAT_APP_ID, WECHAT_APP_SECRET)
         resp = yield client.fetch(url)
-        dict_data = json.loads(resp.body)
+        dict_data = json.loads(str(resp.body))
         if "errcode" in dict_data:
             raise Exception("wechat server error")
         else:
@@ -108,7 +108,7 @@ class WechatHandler(RequestHandler):
                         "FromUserName": dict_data["xml"]["ToUserName"],
                         "CreateTime": int(time.time()),
                         "MsgType": "text",
-                        "Content": u"您来啦，%s"%dict_data["xml"]["FromUserName"],
+                        "Content": u"感谢您的关注！",
                     }
                 }
                 # if "EventKey" in dict_data["xml"]:
