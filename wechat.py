@@ -114,10 +114,10 @@ class WechatHandler(RequestHandler):
                         "Content": u"感谢您的关注！",
                     }
                 }
-                if "EventKey" in dict_data["xml"]:
-                    event_key = dict_data["xml"]["EventKey"]
-                    scene_id = event_key[8:]
-                    resp_data["xml"]["Content"] = u"您来啦，笑而不语%s次" % scene_id
+                # if "EventKey" in dict_data["xml"]:
+                #     event_key = dict_data["xml"]["EventKey"]
+                #     scene_id = event_key[8:]
+                #     resp_data["xml"]["Content"] = u"您来啦，笑而不语%s次" % scene_id
                 self.write(xmltodict.unparse(resp_data))
             elif dict_data["xml"]["Event"] == "SCAN":
                scene_id = dict_data["xml"]["EventKey"]
@@ -203,7 +203,7 @@ class ProfileHandler(RequestHandler):
 """
 用户最终访问的URL
 https://open.weixin.qq.com/connect/oauth2/authorize?
-appid=wx36766f74dbfeef15&redirect_uri=http%3A//www.idehai.com/wechat8000/profile&response_type=code&scope=snsapi_userinfo
+appid=wx36766f74dbfeef15&redirect_uri=http%3A//211.159.159.234/wechat8000/profile&response_type=code&scope=snsapi_userinfo
 &state=1#wechat_redirect
 """
 
