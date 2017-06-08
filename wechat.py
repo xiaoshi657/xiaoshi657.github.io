@@ -64,8 +64,8 @@ class WechatHandler(RequestHandler):
         nonce = self.get_argument("nonce")
         tmp = [WECHAT_TOKEN, timestamp, nonce]
         tmp.sort()
-        tmp = "".join(tmp)
-        real_signature = hashlib.sha1(tmp).encode("utf-8")#hexdigest()
+        tmp = "".join(tmp).encode("utf8")
+        real_signature = hashlib.sha1(tmp).hexdigest()
         if signature != real_signature:
             self.send_error(403)
 
@@ -237,9 +237,9 @@ def main():
     tornado.options.parse_command_line()
     app = tornado.web.Application(
         [
-            (r"/wechat8000", WechatHandler),
+            (r"/wechat", WechatHandler),
             (r"/qrcode", QrcodeHandler),
-            (r"/wechat8000/profile", ProfileHandler),
+            (r"/wechat/profile", ProfileHandler),
             (r"/menu", MenuHandler),
         ],
         template_path=os.path.join(os.path.dirname(__file__), "template")
