@@ -166,7 +166,8 @@ class QrcodeHandler(RequestHandler):
                 body=json.dumps(req_data)
             )
             resp = yield client.fetch(req)
-            dict_data = json.loads(resp.body)
+            dict_data = json.loads(resp.body.decode("utf-8"))
+            print("二次utf-8\n",dict_data)
             if "errcode" in dict_data:
                 self.write("errmsg: get qrcode failed")
             else:
