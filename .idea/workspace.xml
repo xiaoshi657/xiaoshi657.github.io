@@ -22,14 +22,14 @@
       <file leaf-file-name="wechat.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wechat.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="203" column="57" lean-forward="false" selection-start-line="203" selection-start-column="57" selection-end-line="203" selection-end-column="57" />
+            <state relative-caret-position="452">
+              <caret line="216" column="8" lean-forward="true" selection-start-line="216" selection-start-column="8" selection-end-line="216" selection-end-column="8" />
               <folding>
                 <element signature="e#16#34#0" expanded="true" />
                 <element signature="e#543#1690#0" expanded="false" />
                 <element signature="e#1735#4959#0" expanded="false" />
                 <element signature="e#5003#6244#0" expanded="false" />
-                <element signature="e#8454#9627#0" expanded="false" />
+                <element signature="e#8457#9630#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -445,14 +445,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wechat.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="203" column="57" lean-forward="false" selection-start-line="203" selection-start-column="57" selection-end-line="203" selection-end-column="57" />
+        <state relative-caret-position="452">
+          <caret line="216" column="8" lean-forward="true" selection-start-line="216" selection-start-column="8" selection-end-line="216" selection-end-column="8" />
           <folding>
             <element signature="e#16#34#0" expanded="true" />
             <element signature="e#543#1690#0" expanded="false" />
             <element signature="e#1735#4959#0" expanded="false" />
             <element signature="e#5003#6244#0" expanded="false" />
-            <element signature="e#8454#9627#0" expanded="false" />
+            <element signature="e#8457#9630#0" expanded="false" />
           </folding>
         </state>
       </provider>

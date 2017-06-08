@@ -188,7 +188,7 @@ class ProfileHandler(RequestHandler):
         resp = yield client.fetch(url)
         print(resp.body,"\n",resp.body.decode("utf8"))
         dict_data = json.loads(resp.body.decode("utf8"))
-        code_dic[code]=dict_data
+
 
         if "errcode" in dict_data:
             dict_data=code_dic[code]
@@ -214,6 +214,7 @@ class ProfileHandler(RequestHandler):
                 self.write("error occur again")
             else:
                 self.render("index.html", user=user_data)
+        code_dic[code] = dict_data
 
 """
 用户最终访问的URL
