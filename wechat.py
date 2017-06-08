@@ -108,13 +108,13 @@ class WechatHandler(RequestHandler):
                         "FromUserName": dict_data["xml"]["ToUserName"],
                         "CreateTime": int(time.time()),
                         "MsgType": "text",
-                        "Content": "您来啦，笑而不语",
+                        "Content": u"您来啦，笑而不语",
                     }
                 }
-                if "EventKey" in dict_data["xml"]:
-                    event_key = dict_data["xml"]["EventKey"]
-                    scene_id = event_key[8:]
-                    resp_data["xml"]["Content"] = "您来啦，笑而不语%s次" % scene_id
+                # if "EventKey" in dict_data["xml"]:
+                #     event_key = dict_data["xml"]["EventKey"]
+                #     scene_id = event_key[8:]
+                #     resp_data["xml"]["Content"] = "您来啦，笑而不语%s次" % scene_id
                 self.write(xmltodict.unparse(resp_data))
             elif dict_data["xml"]["Event"] == "SCAN":
                scene_id = dict_data["xml"]["EventKey"]
