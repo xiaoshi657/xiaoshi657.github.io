@@ -36,7 +36,7 @@ class AccessToken(object):
         "grant_type=client_credential&appid=%s&secret=%s" % (WECHAT_APP_ID, WECHAT_APP_SECRET)
         resp = yield client.fetch(url)
         print("json 1",resp.body)
-        dict_data = json.loads(resp.body)
+        dict_data = json.loads(resp.body.decode("utf-8"))
         print("json 2")
         if "errcode" in dict_data:
             print("json ex 1")
