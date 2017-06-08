@@ -35,7 +35,7 @@ class AccessToken(object):
         url = "https://api.weixin.qq.com/cgi-bin/token?" \
         "grant_type=client_credential&appid=%s&secret=%s" % (WECHAT_APP_ID, WECHAT_APP_SECRET)
         resp = yield client.fetch(url)
-        dict_data = json.loads(str(resp.body))
+        dict_data = json.loads(str(resp.body,encoding="utf-8"))
         if "errcode" in dict_data:
             raise Exception("wechat server error")
         else:
