@@ -186,7 +186,7 @@ class ProfileHandler(RequestHandler):
         url = "https://api.weixin.qq.com/sns/oauth2/access_token?" \
                 "appid=%s&secret=%s&code=%s&grant_type=authorization_code" % (WECHAT_APP_ID, WECHAT_APP_SECRET, code)
         resp = yield client.fetch(url)
-        dict_data = json.loads(resp.body.decode("utf-8"))
+        dict_data = json.loads(resp.body.decode("utf8"))
         if "errcode" in dict_data:
             self.write("error occur")
         else:
@@ -206,6 +206,10 @@ class ProfileHandler(RequestHandler):
 https://open.weixin.qq.com/connect/oauth2/authorize?
 appid=wx36766f74dbfeef15&redirect_uri=http%3A//211.159.159.234/wechat8000/profile&response_type=code&scope=snsapi_userinfo
 &state=1#wechat_redirect
+域名 要urllib.quote处理一下
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx23c2fd02b67b35d6&
+redirect_uri=http%3A//www.57ce.win/wechat8000 
+/profile&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect
 """
 
 
