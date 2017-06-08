@@ -107,7 +107,7 @@ class WechatHandler(RequestHandler):
                         "FromUserName": dict_data["xml"]["ToUserName"],
                         "CreateTime": int(time.time()),
                         "MsgType": "text",
-                        "Content": u"您来啦，笑而不语",
+                        "Content": "您来啦，笑而不语",
                     }
                 }
                 if "EventKey" in dict_data["xml"]:
@@ -237,9 +237,9 @@ def main():
     tornado.options.parse_command_line()
     app = tornado.web.Application(
         [
-            (r"/wechat", WechatHandler),
+            (r"/wechat8000", WechatHandler),
             (r"/qrcode", QrcodeHandler),
-            (r"/wechat/profile", ProfileHandler),
+            (r"/wechat8000/profile", ProfileHandler),
             (r"/menu", MenuHandler),
         ],
         template_path=os.path.join(os.path.dirname(__file__), "template")
