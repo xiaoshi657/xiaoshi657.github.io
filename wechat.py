@@ -186,7 +186,8 @@ class ProfileHandler(RequestHandler):
         url = "https://api.weixin.qq.com/sns/oauth2/access_token?" \
                 "appid=%s&secret=%s&code=%s&grant_type=authorization_code" % (WECHAT_APP_ID, WECHAT_APP_SECRET, code)
         resp = yield client.fetch(url)
-        dict_data = json.loads(resp.body.encode("utf8"))
+        print(resp.body,"\n",resp.body.decode("utf8"))
+        dict_data = json.loads(resp.body.decode("utf8"))
         if "errcode" in dict_data:
             self.write("error occur")
         else:
