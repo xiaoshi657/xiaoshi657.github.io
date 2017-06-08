@@ -113,7 +113,7 @@ class WechatHandler(RequestHandler):
                 if "EventKey" in dict_data["xml"]:
                     event_key = dict_data["xml"]["EventKey"]
                     scene_id = event_key[8:]
-                    resp_data["xml"]["Content"] = u"您来啦，笑而不语%s次" % scene_id
+                    resp_data["xml"]["Content"] = "您来啦，笑而不语%s次" % scene_id
                 self.write(xmltodict.unparse(resp_data))
             elif dict_data["xml"]["Event"] == "SCAN":
                scene_id = dict_data["xml"]["EventKey"]
