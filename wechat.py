@@ -99,6 +99,7 @@ class WechatHandler(RequestHandler):
             }
             self.write(xmltodict.unparse(resp_data))
         elif msg_type == "event":
+            print(dict_data["xml"]["Event"])
             if dict_data["xml"]["Event"] == "subscribe":
                 """用户关注的事件"""
                 resp_data = {
