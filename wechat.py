@@ -108,7 +108,7 @@ class WechatHandler(RequestHandler):
                         "FromUserName": dict_data["xml"]["ToUserName"],
                         "CreateTime": int(time.time()),
                         "MsgType": "text",
-                        "Content": u"您来啦，%s"%dict_data["xml"]["ToUserName"],
+                        "Content": u"您来啦，%s"%dict_data["xml"]["FromUserName"],
                     }
                 }
                 # if "EventKey" in dict_data["xml"]:
