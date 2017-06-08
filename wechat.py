@@ -35,8 +35,11 @@ class AccessToken(object):
         url = "https://api.weixin.qq.com/cgi-bin/token?" \
         "grant_type=client_credential&appid=%s&secret=%s" % (WECHAT_APP_ID, WECHAT_APP_SECRET)
         resp = yield client.fetch(url)
-        dict_data = json.loads(str(resp.body,encoding="utf-8"))
+        print("json 1")
+        dict_data = json.loads(resp.body)
+        print("json 2")
         if "errcode" in dict_data:
+            print("json ex 1")
             raise Exception("wechat server error")
         else:
             cls._access_token = dict_data["access_token"]
@@ -150,8 +153,10 @@ class QrcodeHandler(RequestHandler):
         try:
             access_token = yield AccessToken.get_access_token()
         except Exception as e:
+            print("eeeeeee:",e)
             self.write("errmsg: %s" % e)
         else:
+            print("qr else")
             client = AsyncHTTPClient()
             url = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=%s" % access_token
             req_data = {"action_name": "QR_LIMIT_SCENE", "action_info": {"scene": {"scene_id": scene_id}}}
