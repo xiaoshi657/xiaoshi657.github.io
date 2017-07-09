@@ -6,12 +6,12 @@ except Exception,e:
     print e.message
 
 pipe = r.pipeline()
-pipe_size = 100000
+pipe_size = 10000000
 
 len = 0
 key_list = []
 print r.pipeline()
-keys = r.keys("itcast*")
+keys = r.keys("it475*")
 for key in keys:
     key_list.append(key)
     pipe.get(key)
@@ -24,7 +24,7 @@ for key in keys:
         key_list = []
 
 for (k, v) in zip(key_list, pipe.execute()):
-    print str(json.loads(v)["info"].encode("utf8"))+"\n----------------------------------------------------------------------------------------------------------------------------------------------------\n"
+    print json.loads(v)["content"][0]
 #r.flushdb()
     # keys = r.keys()
 # print type(keys)

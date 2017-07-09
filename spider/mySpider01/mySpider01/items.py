@@ -10,6 +10,7 @@ import scrapy
 
 class Myspider01Item(scrapy.Item):
     # define the fields for your item here like:
-    name = scrapy.Field()
+    salary = scrapy.Field()
     title = scrapy.Field()
-    info = scrapy.Field()
+    content = scrapy.Field()
+
