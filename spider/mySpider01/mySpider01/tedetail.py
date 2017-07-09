@@ -7,7 +7,8 @@ for i in range(20):
     'Accept-Language': 'en-US,en;q=0.5',
     'Accept-Encoding': 'gzip, deflate',
     'Connection': 'keep-alive'}
-    response = requests.get(" https://www.lagou.com/jobs/3119816.html",  headers = headers)
+    url="http://other.51cto.com/php/get_channel_recommend_art_list.php?callback=jsonp1499596309886&page=2&type_id=519&type=recommend&page_size=19"
+    response = requests.get(url,  headers = headers)
     print  response.text
     # print type(response.text)
     # f = open(str(i) + "_lagou.html", "a+")
